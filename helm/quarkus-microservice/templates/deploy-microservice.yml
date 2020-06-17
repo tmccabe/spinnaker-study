@@ -68,7 +68,7 @@ spec:
                 paths:
                     -   path: /{{.Release.Name}}(/|$)(.*)
                         backend:
-                            serviceName: {{.Release.Name}}-microservice-service
+                            serviceName: {{.Release.Name}}
                             servicePort: 30201
 
 
