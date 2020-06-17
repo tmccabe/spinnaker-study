@@ -25,9 +25,9 @@ spec:
                 - name: {{.Release.Name}}
                   {{- $valtag := .Values.tag -}}
                   {{- if $valtag}}
-                  image: "465848653329.dkr.ecr.us-west-2.amazonaws.com/{{.Release.Name}}-microservice:{{ $valtag }}"
+                  image: "465848653329.dkr.ecr.us-west-2.amazonaws.com/{{.Release.Name}}:{{ $valtag }}"
                   {{- else}}
-                  image: 465848653329.dkr.ecr.us-west-2.amazonaws.com/{{.Release.Name}}-microservice
+                  image: 465848653329.dkr.ecr.us-west-2.amazonaws.com/{{.Release.Name}}
                   {{- end}}
                   ports:
                     -   name: web
