@@ -2,26 +2,26 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
     labels:
-        app: one-microservice
+        app: one
         stack: frontend
         source: demo
-    name: one-microservice
+    name: one
     namespace: microservices
 spec:
     replicas: 3
     selector:
         matchLabels:
-            run: one-microservice
+            run: one
     template:
         metadata:
             labels:
-                app: one-microservice
-                run: one-microservice
+                app: one
+                run: one
                 source: demo
         spec:
             containers:
                 -   image: 465848653329.dkr.ecr.us-west-2.amazonaws.com/one
-                    name: one-microservice
+                    name: one
                     ports:
                         -   name: web
                             containerPort: 8080
@@ -31,13 +31,13 @@ kind: Service
 apiVersion: v1
 metadata:
     labels:
-        app: one-microservice
-    name: one-microservice
+        app: one
+    name: one
     namespace: microservices
 spec:
     selector:
         source: demo
-        app: one-microservice
+        app: one
     ports:
         -   name: web
             protocol: TCP
@@ -59,7 +59,7 @@ spec:
                 paths:
                     -   path: /one(/|$)(.*)
                         backend:
-                            serviceName: one-microservice
+                            serviceName: one
                             servicePort: 30201
 
 
