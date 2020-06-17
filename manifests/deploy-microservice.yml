@@ -20,7 +20,7 @@ spec:
                 source: demo
         spec:
             containers:
-                -   image: 465848653329.dkr.ecr.us-west-2.amazonaws.com/one-microservice
+                -   image: 465848653329.dkr.ecr.us-west-2.amazonaws.com/one
                     name: one-microservice
                     ports:
                         -   name: web
