@@ -7,22 +7,22 @@ metadata:
         version: "{{.Values.tag}}"
         stack: frontend
         source: demo
-    name: {{.Release.Name}}-microservice
+    name: {{.Release.Name}}
     namespace: microservices
 spec:
     replicas: 3
     selector:
         matchLabels:
-            run: {{.Release.Name}}-microservice
+            run: {{.Release.Name}}
     template:
         metadata:
             labels:
-                app: {{.Release.Name}}-microservice
-                run: {{.Release.Name}}-microservice
+                app: {{.Release.Name}}
+                run: {{.Release.Name}}
                 source: demo
         spec:
             containers:
-                - name: {{.Release.Name}}-microservice
+                - name: {{.Release.Name}}
                   {{- $valtag := .Values.tag -}}
                   {{- if $valtag}}
                   image: "465848653329.dkr.ecr.us-west-2.amazonaws.com/{{.Release.Name}}-microservice:{{ $valtag }}"
@@ -46,7 +46,7 @@ metadata:
 spec:
     selector:
         source: demo
-        app: {{.Release.Name}}-microservice
+        app: {{.Release.Name}}
     ports:
         -   name: web
             protocol: TCP
